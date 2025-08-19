@@ -71,15 +71,13 @@ const FileUpload: React.FC<FileUploadProps> = ({
   return (
     <div className="w-full">
       {!selectedFile ? (
-        <motion.div
+        <div
           {...getRootProps()}
           className={`upload-zone ${isDragActive || isDragOver ? 'dragover' : ''} ${
             isLoading ? 'opacity-50 cursor-not-allowed' : ''
           }`}
           onDragEnter={() => setIsDragOver(true)}
           onDragLeave={() => setIsDragOver(false)}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
         >
           <input {...getInputProps()} />
           <div className="space-y-4">
@@ -113,7 +111,7 @@ const FileUpload: React.FC<FileUploadProps> = ({
               Maximum file size: 100MB
             </div>
           </div>
-        </motion.div>
+        </div>
       ) : (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
