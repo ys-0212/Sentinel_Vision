@@ -49,6 +49,35 @@ export default function Home() {
     setApiKey(e.target.value);
   };
 
+  const testApiKey = async () => {
+    if (!apiKey.trim()) {
+      toast.error('Please enter your Hive API key first');
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/test', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ apiKey }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success('API key is valid! Available models: ' + (data.models?.length || 0));
+        console.log('Available models:', data.models);
+      } else {
+        toast.error('API key test failed: ' + data.error);
+        console.error('API test error:', data);
+      }
+    } catch (error: any) {
+      toast.error('API test failed: ' + error.message);
+    }
+  };
+
   const handleDetection = async () => {
     if (!selectedFile) {
       toast.error('Please select a file first');
@@ -162,14 +191,22 @@ export default function Home() {
                   <label htmlFor="apiKey" className="block text-sm font-medium text-gray-700 mb-2">
                     API Key
                   </label>
-                  <input
-                    type="password"
-                    id="apiKey"
-                    value={apiKey}
-                    onChange={handleApiKeyChange}
-                    placeholder="Enter your Hive API key"
-                    className="input-field"
-                  />
+                                     <div className="flex space-x-2">
+                     <input
+                       type="password"
+                       id="apiKey"
+                       value={apiKey}
+                       onChange={handleApiKeyChange}
+                       placeholder="Enter your Hive API key"
+                       className="input-field flex-1"
+                     />
+                     <button
+                       onClick={testApiKey}
+                       className="px-4 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-colors duration-200"
+                     >
+                       Test
+                     </button>
+                   </div>
                 </div>
                 
                 <div className="flex items-start space-x-2 p-3 bg-blue-50 rounded-lg">
