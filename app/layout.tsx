@@ -10,7 +10,11 @@ export const metadata: Metadata = {
   description: 'Advanced AI-powered deepfake detection for images and videos using Hive API',
   keywords: ['deepfake', 'detection', 'ai', 'hive', 'security'],
   authors: [{ name: 'Deepfake Detection Team' }],
-  viewport: 'width=device-width, initial-scale=1',
+}
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
 }
 
 export default function RootLayout({
