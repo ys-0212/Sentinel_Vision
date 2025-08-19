@@ -46,10 +46,19 @@ export async function POST(request: NextRequest) {
     const mediaType = fileType.startsWith('image/') ? 'image' : 'video';
 
     // Perform deepfake detection
+    console.log('Starting deepfake detection with:', {
+      fileName: file.name,
+      fileSize: file.size,
+      fileType: mediaType,
+      apiKeyLength: apiKey.length
+    });
+    
     const result = await hiveService.detectDeepfake({
       media: file,
       type: mediaType,
     });
+    
+    console.log('Detection result:', result);
 
     if (result.status === 'error') {
       return NextResponse.json(

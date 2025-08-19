@@ -36,9 +36,14 @@ export class HiveApiService {
 
   private async makeRequest(endpoint: string, data: FormData): Promise<any> {
     try {
+      // For Hive API V3, we need to use the correct authorization format
+      const authHeader = this.apiKey.includes(':') 
+        ? `Bearer ${this.apiKey}`
+        : `Bearer ${this.apiKey}`;
+        
       const response = await axios.post(`${this.baseUrl}${endpoint}`, data, {
         headers: {
-          'Authorization': `Bearer ${this.apiKey}`,
+          'Authorization': authHeader,
           'Content-Type': 'multipart/form-data',
         },
         timeout: 60000, // 60 seconds timeout
@@ -46,6 +51,7 @@ export class HiveApiService {
       return response.data;
     } catch (error: any) {
       if (error.response) {
+        console.error('API Error Response:', error.response.data);
         throw new Error(`API Error: ${error.response.data?.message || error.response.statusText}`);
       } else if (error.request) {
         throw new Error('Network error: Unable to connect to Hive API');
@@ -59,7 +65,7 @@ export class HiveApiService {
     const formData = new FormData();
     formData.append('media', request.media);
     
-    // Add model specification for deepfake detection
+    // Use the correct model name for Hive API
     formData.append('model', 'deepfake-detection');
     
     // Add additional parameters for better results
@@ -67,6 +73,9 @@ export class HiveApiService {
     formData.append('return_metadata', 'true');
 
     try {
+      console.log('Making API request to:', `${this.baseUrl}/sync`);
+      console.log('FormData contents:', Array.from(formData.entries()));
+      
       const response = await this.makeRequest('/sync', formData);
       
       // Parse the response based on Hive API V3 format
