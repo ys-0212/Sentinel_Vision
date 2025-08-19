@@ -31,7 +31,7 @@ export class HiveApiService {
 
   constructor(config: HiveApiConfig) {
     this.apiKey = config.apiKey;
-    this.baseUrl = config.baseUrl || 'https://api.thehive.ai/api/v2';
+    this.baseUrl = config.baseUrl || 'https://api.thehive.ai/api/v3';
   }
 
   private async makeRequest(endpoint: string, data: FormData): Promise<any> {
@@ -69,7 +69,7 @@ export class HiveApiService {
     try {
       const response = await this.makeRequest('/sync', formData);
       
-      // Parse the response based on Hive API format
+      // Parse the response based on Hive API V3 format
       if (response.status === 'success' && response.results) {
         const predictions = response.results.map((result: any) => ({
           class: result.class as 'real' | 'fake',

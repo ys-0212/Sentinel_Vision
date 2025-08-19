@@ -175,12 +175,12 @@ export default function Home() {
                 <div className="flex items-start space-x-2 p-3 bg-blue-50 rounded-lg">
                   <Info className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
                   <div className="text-sm text-blue-800">
-                    <p className="font-medium mb-1">How to get your API key:</p>
+                    <p className="font-medium mb-1">How to use your API key:</p>
                     <ol className="list-decimal list-inside space-y-1">
-                      <li>Visit <a href="https://thehive.ai" target="_blank" rel="noopener noreferrer" className="underline">thehive.ai</a></li>
-                      <li>Sign up for an account</li>
-                      <li>Navigate to your API settings</li>
-                      <li>Copy your API key and paste it above</li>
+                      <li>Use your <strong>Secret Key</strong> (not Access Key ID)</li>
+                      <li>Format: <code>HZsGJnppnXsyN3Wr:qdFEu+mrwxs+e+dkjhcEIA==</code></li>
+                      <li>Or just use the Secret Key: <code>qdFEu+mrwxs+e+dkjhcEIA==</code></li>
+                      <li>Make sure you're using V3 API keys</li>
                     </ol>
                   </div>
                 </div>
