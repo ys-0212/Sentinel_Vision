@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getHiveApiService } from '@/lib/hive-api';
+import { getDeepAIService } from '@/lib/deepai-api';
 
 export async function POST(request: NextRequest) {
   try {
@@ -39,8 +39,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Initialize Hive API service
-    const hiveService = getHiveApiService(apiKey);
+    // Initialize DeepAI service
+    const deepAIService = getDeepAIService(apiKey);
 
     // Determine file type for detection
     const mediaType = fileType.startsWith('image/') ? 'image' : 'video';
@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
       apiKeyLength: apiKey.length
     });
     
-    const result = await hiveService.detectDeepfake({
+    const result = await deepAIService.detectDeepfake({
       media: file,
       type: mediaType,
     });

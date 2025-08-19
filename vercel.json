@@ -1,6 +1,3 @@
 {
-  "version": 2,
-  "env": {
-    "HIVE_API_URL": "https://api.thehive.ai/api/v3"
-  }
+  "version": 2
 }

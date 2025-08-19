@@ -66,13 +66,13 @@ export default function Home() {
 
       const data = await response.json();
 
-      if (response.ok) {
-        toast.success('API key is valid! Available models: ' + (data.models?.length || 0));
-        console.log('Available models:', data.models);
-      } else {
-        toast.error('API key test failed: ' + data.error);
-        console.error('API test error:', data);
-      }
+             if (response.ok) {
+         toast.success('DeepAI API key is valid! User: ' + (data.user?.username || 'Unknown'));
+         console.log('User info:', data.user);
+       } else {
+         toast.error('API key test failed: ' + data.error);
+         console.error('API test error:', data);
+       }
     } catch (error: any) {
       toast.error('API test failed: ' + error.message);
     }
@@ -181,9 +181,9 @@ export default function Home() {
             >
               <div className="flex items-center space-x-2 mb-4">
                 <Zap className="w-5 h-5 text-primary-600" />
-                <h3 className="text-lg font-semibold text-gray-900">
-                  Hive API Configuration
-                </h3>
+                                 <h3 className="text-lg font-semibold text-gray-900">
+                   DeepAI API Configuration
+                 </h3>
               </div>
               
               <div className="space-y-4">
@@ -212,13 +212,13 @@ export default function Home() {
                 <div className="flex items-start space-x-2 p-3 bg-blue-50 rounded-lg">
                   <Info className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
                   <div className="text-sm text-blue-800">
-                    <p className="font-medium mb-1">How to use your API key:</p>
-                    <ol className="list-decimal list-inside space-y-1">
-                      <li>Use your <strong>Secret Key</strong> (not Access Key ID)</li>
-                      <li>Format: <code>HZsGJnppnXsyN3Wr:qdFEu+mrwxs+e+dkjhcEIA==</code></li>
-                      <li>Or just use the Secret Key: <code>qdFEu+mrwxs+e+dkjhcEIA==</code></li>
-                      <li>Make sure you're using V3 API keys</li>
-                    </ol>
+                                         <p className="font-medium mb-1">How to get your DeepAI API key:</p>
+                     <ol className="list-decimal list-inside space-y-1">
+                       <li>Go to <a href="https://deepai.org" target="_blank" className="text-blue-600 underline">deepai.org</a></li>
+                       <li>Sign up for a free account</li>
+                       <li>Get your API key from your profile</li>
+                       <li>Free tier includes 5,000 API calls per month</li>
+                     </ol>
                   </div>
                 </div>
               </div>
@@ -318,18 +318,18 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="text-center text-gray-600">
-            <p className="text-sm">
-              Powered by Hive AI • Advanced deepfake detection technology
-            </p>
-            <p className="text-xs mt-2 text-gray-500">
-              This tool uses AI to analyze content authenticity. Results should be used as a reference only.
-            </p>
-          </div>
-        </div>
-      </footer>
+             <footer className="bg-white border-t border-gray-200 mt-16">
+         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+           <div className="text-center text-gray-600">
+             <p className="text-sm">
+               Powered by DeepAI • Advanced deepfake detection technology
+             </p>
+             <p className="text-xs mt-2 text-gray-500">
+               This tool uses AI to analyze content authenticity. Results should be used as a reference only.
+             </p>
+           </div>
+         </div>
+       </footer>
     </div>
   );
 }

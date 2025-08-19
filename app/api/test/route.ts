@@ -13,17 +13,17 @@ export async function POST(request: NextRequest) {
     }
 
     // Test the API key with a simple request
-    const response = await axios.get('https://api.thehive.ai/api/v3/models', {
+    const response = await axios.get('https://api.deepai.org/api/user', {
       headers: {
-        'Authorization': `Bearer ${apiKey}`,
+        'api-key': apiKey,
       },
       timeout: 10000,
     });
 
     return NextResponse.json({
       success: true,
-      models: response.data,
-      message: 'API key is valid and working'
+      user: response.data,
+      message: 'DeepAI API key is valid and working'
     });
 
   } catch (error: any) {

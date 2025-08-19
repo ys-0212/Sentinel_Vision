@@ -1,10 +1,10 @@
 # Deepfake Detection App
 
-A modern, AI-powered deepfake detection application built with Next.js and integrated with the Hive API. This application provides a beautiful, user-friendly interface for detecting AI-generated content in images and videos.
+A modern, AI-powered deepfake detection application built with Next.js and integrated with the DeepAI API. This application provides a beautiful, user-friendly interface for detecting AI-generated content in images and videos.
 
 ## 🚀 Features
 
-- **Advanced Deepfake Detection**: Powered by Hive AI's state-of-the-art deepfake detection models
+- **Advanced Deepfake Detection**: Powered by DeepAI's state-of-the-art deepfake detection models
 - **Multi-Format Support**: Analyze both images (JPG, PNG, GIF, BMP, WebP) and videos (MP4, AVI, MOV, WMV, FLV, WebM, MKV)
 - **Beautiful UI/UX**: Modern, responsive design with smooth animations and intuitive user interface
 - **Drag & Drop Upload**: Easy file upload with drag-and-drop functionality
@@ -18,7 +18,7 @@ A modern, AI-powered deepfake detection application built with Next.js and integ
 - **Frontend**: Next.js 14, React 18, TypeScript
 - **Styling**: Tailwind CSS, Framer Motion
 - **UI Components**: Lucide React Icons, React Dropzone
-- **API Integration**: Axios, Hive AI API
+- **API Integration**: Axios, DeepAI API
 - **Notifications**: React Hot Toast
 - **Deployment**: Vercel-ready
 
@@ -28,7 +28,7 @@ Before running this application, you'll need:
 
 1. **Node.js** (version 18 or higher)
 2. **npm** or **yarn** package manager
-3. **Hive AI API Key** - Get one from [thehive.ai](https://thehive.ai)
+3. **DeepAI API Key** - Get one from [deepai.org](https://deepai.org)
 
 ## 🚀 Quick Start
 
@@ -52,7 +52,6 @@ yarn install
 Create a `.env.local` file in the root directory:
 
 ```env
-HIVE_API_URL=https://api.thehive.ai/api/v2
 NEXT_PUBLIC_APP_NAME=Deepfake Detection App
 ```
 
@@ -70,8 +69,8 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see the a
 
 ### API Key Setup
 
-1. Visit [thehive.ai](https://thehive.ai) and create an account
-2. Navigate to your API settings
+1. Visit [deepai.org](https://deepai.org) and create an account
+2. Navigate to your profile settings
 3. Copy your API key
 4. In the app, click the "Settings" button in the header
 5. Paste your API key in the configuration section
@@ -81,7 +80,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see the a
 You can customize the application by modifying:
 
 - **Styling**: Edit `tailwind.config.js` and `app/globals.css`
-- **API Configuration**: Modify `lib/hive-api.ts`
+- **API Configuration**: Modify `lib/deepai-api.ts` (DeepAI integration)
 - **Components**: Update components in the `components/` directory
 - **Environment Variables**: Add more variables in `.env.local`
 
@@ -89,7 +88,7 @@ You can customize the application by modifying:
 
 ### Basic Workflow
 
-1. **Configure API Key**: Click "Settings" and enter your Hive API key
+1. **Configure API Key**: Click "Settings" and enter your DeepAI API key
 2. **Upload File**: Drag and drop or click to select an image or video file
 3. **Start Detection**: Click "Start Detection" to begin analysis
 4. **View Results**: Review the detailed analysis results and confidence scores
@@ -131,7 +130,6 @@ You can customize the application by modifying:
 Set these in your deployment platform:
 
 ```env
-HIVE_API_URL=https://api.thehive.ai/api/v2
 NEXT_PUBLIC_APP_NAME=Deepfake Detection App
 ```
 
@@ -152,12 +150,12 @@ npm start
 
 ## 📊 API Integration
 
-The application integrates with Hive AI's V2 API for deepfake detection:
+The application integrates with DeepAI's API for deepfake detection:
 
-- **Sync API**: For real-time detection of smaller files
-- **Async API**: For batch processing of larger files
+- **Real-time Detection**: Fast analysis of images and videos
+- **Free Tier**: 5,000 API calls per month included
 - **Error Handling**: Comprehensive error handling and user feedback
-- **Response Parsing**: Proper parsing of Hive API responses
+- **Response Parsing**: Proper parsing of DeepAI API responses
 
 ## 🎨 Customization
 
@@ -181,7 +179,7 @@ All components are modular and can be easily customized:
 - `FileUpload.tsx`: File upload interface
 - `DetectionResult.tsx`: Results display
 - `LoadingSpinner.tsx`: Loading states
-- `hive-api.ts`: API integration logic
+- `deepai-api.ts`: API integration logic
 
 ## 🤝 Contributing
 
@@ -197,7 +195,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- [Hive AI](https://thehive.ai) for providing the deepfake detection API
+- [DeepAI](https://deepai.org) for providing the deepfake detection API
 - [Next.js](https://nextjs.org) for the amazing React framework
 - [Tailwind CSS](https://tailwindcss.com) for the utility-first CSS framework
 - [Framer Motion](https://www.framer.com/motion/) for smooth animations
