@@ -1,26 +1,10 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/next"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ],
   "env": {
     "HIVE_API_URL": "https://api.thehive.ai/api/v2"
   },
   "functions": {
-    "app/api/detect/route.ts": {
+    "api/detect/route.ts": {
       "maxDuration": 60
     }
   }
